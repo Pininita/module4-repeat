@@ -1,39 +1,17 @@
-import { useEffect, useState } from 'react'
+import React from 'react'
+import RickAndMortyCharacterCard from './high-order-component/RickAndMortyCharacterCard'
 import './App.css'
-import { CharacterCard } from './components/CharacterCard';
 
 function App() {
 
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [gender, setGender] = useState("");
-  const [status, setStatus] = useState("");
-
-  const rickAndMortyCharacterId = 1;
-
-  useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${rickAndMortyCharacterId}`)
-      .then((reponse) => reponse.json())
-      .then((data) => {
-        console.log(data)
-        setName(data.name)
-        setImage(data.image);
-        setGender(data.gender);
-        setStatus(data.status);
-      })
-      .catch((error) => console.error("error find: ", error))
-  }, [])
-
-  return (
+  return(
     <>
       <h1>RICK AND MORTY CHARACTERS</h1>
-      <div>
-        <CharacterCard
-          name={name}
-          image={image}
-          gender={gender}
-          status={status}
-        />
+      <div className='app-characters-card'>
+        <RickAndMortyCharacterCard id={1}/>
+        <RickAndMortyCharacterCard id={2}/>
+        <RickAndMortyCharacterCard id={3}/>
+        <RickAndMortyCharacterCard id={10}/>
       </div>
 
     </>

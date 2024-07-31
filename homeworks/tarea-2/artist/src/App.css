@@ -35,8 +35,16 @@ display: block;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
+  background-color: darkslategray;
 }
 
 h2,p {
   margin: 0;
+}
+
+.app-characters-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
