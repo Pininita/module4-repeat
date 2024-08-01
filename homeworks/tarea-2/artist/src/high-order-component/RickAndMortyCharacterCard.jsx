@@ -3,7 +3,7 @@ import { CharacterCard } from "../components/CharacterCard";
 import { useEffect} from "react";
 import { useState } from "react";
 
-const RickAndMortyCharacterCard = (props) => {
+export const RickAndMortyCharacterCard = (props) => {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [gender, setGender] = useState("");
@@ -38,6 +38,3 @@ const RickAndMortyCharacterCard = (props) => {
         </>
     )
 }
-
-export default RickAndMortyCharacterCard;
-

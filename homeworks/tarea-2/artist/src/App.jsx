@@ -1,5 +1,5 @@
 import React from 'react'
-import RickAndMortyCharacterCard from './high-order-component/RickAndMortyCharacterCard'
+import {RickAndMortyCharacterCard} from './high-order-component/RickAndMortyCharacterCard'
 import './App.css'
 
 function App() {
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
