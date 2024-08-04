@@ -45,6 +45,32 @@ h2,p {
 
 .app-characters-card {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
+  gap: 10px;
 }
+
+/* episode page section */
+
+.episodecard{
+  border: 2px solid green;
+  max-width: 300px;
+  min-width: auto;
+  border-radius: 15px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.episodecard-episode{
+  background-color: green;
+  margin-bottom: 5px;
+}
+
+.main-episodes-page{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* end episode page section */

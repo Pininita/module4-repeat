@@ -13,10 +13,10 @@ function App() {
       <Router>
         <div>
           <Routes>
-            <Route path='/' exact element={HomePage} />
-            <Route path='/characters' element={CharacterPage} />
-            <Route path='/episodes' element={EpisodesPage} />
-            <Route element={PageNotFound} />
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/characters' element={<CharacterPage/>} />
+            <Route path='/episodes' element={<EpisodesPage/>} />
+            <Route path='*' element={<PageNotFound/>} />
           </Routes>
         </div>
       </Router>

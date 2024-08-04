@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export const HomePage = () => {
@@ -12,10 +13,11 @@ export const HomePage = () => {
                 Quick Links
             </h3>
             <Link to="/characters">
-                Go to characters
+                <button>Go to characters</button>
             </Link>
+            <br/>
             <Link to="/episodes">
-                Go to episodes
+                <button>Go to episodes</button>
             </Link>
         </>
     )
