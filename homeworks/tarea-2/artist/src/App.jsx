@@ -1,19 +1,25 @@
 import React from 'react'
-import {RickAndMortyCharacterCard} from './high-order-component/RickAndMortyCharacterCard'
 import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { CharacterPage } from './pages/CharacterPage';
+import { EpisodesPage } from './pages/EpisodesPage';
+import { PageNotFound } from './pages/PageNotFound';
 
 function App() {
 
-  return(
+  return (
     <>
-      <h1>RICK AND MORTY CHARACTERS</h1>
-      <div className='app-characters-card'>
-        <RickAndMortyCharacterCard id={1}/>
-        <RickAndMortyCharacterCard id={2}/>
-        <RickAndMortyCharacterCard id={3}/>
-        <RickAndMortyCharacterCard id={10}/>
-      </div>
-
+      <Router>
+        <div>
+          <Routes>
+            <Route path='/' exact element={HomePage} />
+            <Route path='/characters' element={CharacterPage} />
+            <Route path='/episodes' element={EpisodesPage} />
+            <Route element={PageNotFound} />
+          </Routes>
+        </div>
+      </Router>
     </>
   )
 }
