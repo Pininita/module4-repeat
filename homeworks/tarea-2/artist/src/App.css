@@ -35,7 +35,6 @@ display: block;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
   background-color: darkslategray;
 }
 
@@ -43,11 +42,11 @@ h2,p {
   margin: 0;
 }
 
-.app-characters-card {
+.item-charactercard {
   display: flex;
-  /* justify-content: space-between; */
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* episode page section */

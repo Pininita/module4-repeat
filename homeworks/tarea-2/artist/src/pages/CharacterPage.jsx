@@ -7,11 +7,9 @@ export const CharacterPage = () => {
         <>
             <h1>RICK AND MORTY CHARACTERS</h1>
             <div className='app-characters-card'>
-                <RickAndMortyCharacterCard id={1} />
-                <RickAndMortyCharacterCard id={2} />
-                <RickAndMortyCharacterCard id={3} />
-                <RickAndMortyCharacterCard id={10} />
+                <RickAndMortyCharacterCard/>
             </div>
+            
 
         </>
     )

@@ -1,40 +1,49 @@
 import React from "react";
 import { CharacterCard } from "../components/CharacterCard";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { ButtonComponent } from "../components/ButtonComponent";
 
-export const RickAndMortyCharacterCard = (props) => {
-    const [name, setName] = useState("");
-    const [image, setImage] = useState("");
-    const [gender, setGender] = useState("");
-    const [status, setStatus] = useState("");
+export const RickAndMortyCharacterCard = () => {
+    
 
-    const rickAndMortyCharacterId = props.id;
+    const [characterList, setCharacterList] = useState([]);
+    const [offset, setOffset] = useState(1)
+
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${rickAndMortyCharacterId}`)
+        fetch(`https://rickandmortyapi.com/api/character/?page=${offset}`)
             .then((reponse) => reponse.json())
             .then((data) => {
                 console.log(data)
-                setName(data.name)
-                setImage(data.image);
-                setGender(data.gender);
-                setStatus(data.status);
+                setCharacterList(data.results)
             })
-            .catch((error) => console.error("error find: ", error))
-    }, [])
+            .catch((error) => console.error("error found: ", error))
+    }, [offset])
 
     return (
-        <>
-            <div>
-                <CharacterCard
-                    name={name}
-                    image={image}
-                    gender={gender}
-                    status={status}
-                />
-            </div>
+       <>
+            <div className="item-charactercard">
+                {characterList.map((characters) => (
+                    <div   key={characters.id}>
+                        <CharacterCard
+                            name={characters.name}
+                            image={characters.image}
+                            gender={characters.gender}
+                            status={characters.status}
+                        />
+                    </div>
 
+                ))
+                }
+            </div>
+            <br />
+            <section className='button-section-characterpage'>
+                {/* <button>next page</button>
+                {offset}
+                <button>prev page</button> */}
+                <ButtonComponent/>
+            </section>
         </>
     )
 }
