@@ -10,7 +10,6 @@ export const RickAndMortyCharacterCard = () => {
     const [characterList, setCharacterList] = useState([]);
     const [offset, setOffset] = useState(1)
 
-
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/?page=${offset}`)
             .then((reponse) => reponse.json())
@@ -19,6 +18,7 @@ export const RickAndMortyCharacterCard = () => {
                 setCharacterList(data.results)
             })
             .catch((error) => console.error("error found: ", error))
+            console.log(offset,'soy offset');
     }, [offset])
 
     return (
@@ -42,7 +42,10 @@ export const RickAndMortyCharacterCard = () => {
                 {/* <button>next page</button>
                 {offset}
                 <button>prev page</button> */}
-                <ButtonComponent/>
+                <ButtonComponent
+                pages={offset} 
+                setpages={setOffset}
+                />
             </section>
         </>
     )
