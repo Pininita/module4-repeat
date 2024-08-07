@@ -29,18 +29,18 @@ export const RickAndMortyEpisodeCard = () => {
 
     return (
         <div className="container-episodePage">
-            <div className="episode-item"> 
-            {
-                episodeList.map((cap) => (
-                    <div>
-                <EpisodeCard
-                name={cap.name}
-                episode={cap.episode}
-                air_date={cap.air_date}
-                />
-            </div>
-                ))
-            }
+            <div className="episode-item">
+                {
+                    episodeList.map((cap) => (
+                        <div key={cap.id}>
+                            <EpisodeCard
+                                name={cap.name}
+                                episode={cap.episode}
+                                air_date={cap.air_date}
+                            />
+                        </div>
+                    ))
+                }
             </div>
             <section className="button-section-episodePage">
                 <button disabled={offset === 1} onClick={prevPage}>prev</button>
