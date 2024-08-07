@@ -79,3 +79,21 @@ h2,p {
 }
 
 /* end episode page section */
+
+/* button style from episode page */
+
+.container-episodePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.button-section-episodePage {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+/* end button style from episode page */
