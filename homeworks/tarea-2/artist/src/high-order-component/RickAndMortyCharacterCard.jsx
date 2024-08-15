@@ -3,7 +3,7 @@ import { CharacterCard } from "../components/CharacterCard";
 import { useEffect } from "react";
 import { useState } from "react";
 import { ButtonComponent } from "../components/ButtonComponent";
-import {useLocation} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 
 export const RickAndMortyCharacterCard = () => {
 
@@ -15,9 +15,15 @@ export const RickAndMortyCharacterCard = () => {
     const [genderFilter, setGenderFilter] = useState('')
 
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+    const name = queryParams.get('name') || '';
+    const gender = queryParams.get('gender') || '';
+
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${offset}&name=${nameFilter}&gender=${genderFilter}`)
+        fetch(`https://rickandmortyapi.com/api/character/?page=${offset}&name=${name}&gender=${gender}`)
             .then((reponse) => reponse.json())
             .then((data) => {
                 console.log(data)
@@ -25,9 +31,13 @@ export const RickAndMortyCharacterCard = () => {
             })
             .catch((error) => console.error("error found: ", error))
         console.log(offset, 'soy offset');
-    }, [offset, nameFilter, genderFilter])
+    }, [offset, name, gender])
 
-        console.log(genderFilter);
+    console.log(genderFilter);
+
+    const handleSearch = () => {
+        navigate(`?name=${nameFilter}&gender=${genderFilter}`)
+    }
 
 
     return (
@@ -42,21 +52,27 @@ export const RickAndMortyCharacterCard = () => {
                     <option value="unknown">Unknown</option>
                     <option value="genderless">Genderless</option>
                 </select>
-                {/* <button type='button' onClick={handleSearch}>search</button> */}
+                <button type="button" onClick={handleSearch}>search</button>
             </div>
             {/* ending search bar */}
             <div className="item-charactercard">
-                {characterList.map((characters) => (
-                    <div   key={characters.id}>
-                        <CharacterCard
-                            name={characters.name}
-                            image={characters.image}
-                            gender={characters.gender}
-                            status={characters.status}
-                        />
-                    </div>
-
-                ))
+                {characterList && characterList.length > 0 ? (
+                    characterList.map((characters) => {
+                        console.log(characters, "soy characters");
+                        return (
+                            <div className="character-card-container" key={characters.id}>
+                                <CharacterCard
+                                    name={characters.name}
+                                    image={characters.image}
+                                    gender={characters.gender}
+                                    status={characters.status}
+                                />
+                            </div>
+                        )
+    
+    
+                    })
+                ) : (<p>no hay personajes disponibles</p>)
                 }
             </div>
             <br />
