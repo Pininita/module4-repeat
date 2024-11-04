@@ -38,21 +38,21 @@ export const RickAndMortyCharacterCard = () => {
     const handleSearch = () => {
         navigate(`?name=${nameFilter}&gender=${genderFilter}`)
     }
-
+    
 
     return (
         <>
             {/* starting search bar */}
-            <div>
-                <input type="text" id='searchInput' placeholder='Search...' value={nameFilter} onChange={(e) => setNameFilter(e.target.value)} />
-                <select name="" id="gender" value={genderFilter} onChange={(e) => setGenderFilter(e.target.value)}>
+            <div className="search-bar">
+                <input type="text" id='searchInput' placeholder='Search...' value={nameFilter} onChange={(e) => setNameFilter(e.target.value)} className="search-bar-input" />
+                <select name="" id="gender" value={genderFilter} onChange={(e) => setGenderFilter(e.target.value)} className="search-bar-select">
                     <option value="">Select...</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="unknown">Unknown</option>
                     <option value="genderless">Genderless</option>
                 </select>
-                <button type="button" onClick={handleSearch}>search</button>
+                <button type="button" onClick={handleSearch} className="search-bar-button">Search</button>
             </div>
             {/* ending search bar */}
             <div className="item-charactercard">

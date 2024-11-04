@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import characterHome from "../pics/characters-home.webp"
+import episodesHome from "../pics/episodes-home.jpg"
 
 
 export const HomePage = () => {
@@ -12,13 +14,20 @@ export const HomePage = () => {
             <h3>
                 Quick Links
             </h3>
-            <Link to="/characters">
-                <button>Go to characters</button>
-            </Link>
-            <br/>
-            <Link to="/episodes">
-                <button>Go to episodes</button>
-            </Link>
+            <section className="home-links">
+                <div className="home-links-card"> 
+                    <img src={characterHome} alt="characters-home" />
+                    <Link to="/characters">
+                        <button>Go to characters</button>
+                    </Link>
+                </div>
+                <div className="home-links-card">
+                    <img src={episodesHome} alt="episodes-home" />
+                    <Link to="/episodes">
+                        <button>Go to episodes</button>
+                    </Link>
+                </div>
+            </section>
         </>
     )
 }

@@ -5,7 +5,7 @@ export const EpisodesPage = () => {
 
     return (
         <div>
-            <h4>episodes page</h4>
+            <h1>RICK AND MORTY EPISODES</h1>
             <section className="main-episodes-page">
                 <RickAndMortyEpisodeCard/>
                 

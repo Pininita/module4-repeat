@@ -26,27 +26,27 @@ export function ButtonComponent(props) {
   };
 
   return (
-    <div className="flex items-center gap-4">
-      <Button
+    <div className="pagination">
+      <button
         variant="text"
-        className="flex items-center gap-2 rounded-full"
+        className="pagination-button flex items-center gap-2 rounded-full"
         onClick={prev}
         disabled={props.pages === 1}
       >
-        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
-      </Button>
+        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Prev
+      </button>
       <div className="flex items-center gap-2">
-        <IconButton {...getItemProps(props.pages)}>{props.pages}</IconButton>
+        <p className="pagination-number" {...getItemProps(props.pages)}>{props.pages}</p>
       </div>
-      <Button
+      <button
         variant="text"
-        className="flex items-center gap-2 rounded-full"
+        className="pagination-button flex items-center gap-2 rounded-full"
         onClick={next}
         disabled={props.pages === 42}
       >
         Next
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-      </Button>
+      </button>
     </div>
   );
 }
