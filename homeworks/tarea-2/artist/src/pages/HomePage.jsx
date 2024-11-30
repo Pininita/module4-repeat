@@ -15,13 +15,13 @@ export const HomePage = () => {
                 Quick Links
             </h3>
             <section className="home-links">
-                <div className="home-links-card"> 
+                <div className="links"> 
                     <img src={characterHome} alt="characters-home" />
                     <Link to="/characters">
                         <button>Go to characters</button>
                     </Link>
                 </div>
-                <div className="home-links-card">
+                <div className="links">
                     <img src={episodesHome} alt="episodes-home" />
                     <Link to="/episodes">
                         <button>Go to episodes</button>

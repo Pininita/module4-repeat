@@ -7,20 +7,17 @@ import {useLocation, useNavigate} from 'react-router-dom'
 
 export const RickAndMortyCharacterCard = () => {
 
-
     const [characterList, setCharacterList] = useState([]);
     const [offset, setOffset] = useState(1)
 
     const [nameFilter, setNameFilter] = useState('')
     const [genderFilter, setGenderFilter] = useState('')
 
-
     const location = useLocation();
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const name = queryParams.get('name') || '';
     const gender = queryParams.get('gender') || '';
-
 
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/?page=${offset}&name=${name}&gender=${gender}`)
@@ -30,16 +27,12 @@ export const RickAndMortyCharacterCard = () => {
                 setCharacterList(data.results)
             })
             .catch((error) => console.error("error found: ", error))
-        console.log(offset, 'soy offset');
     }, [offset, name, gender])
-
-    console.log(genderFilter);
 
     const handleSearch = () => {
         navigate(`?name=${nameFilter}&gender=${genderFilter}`)
     }
     
-
     return (
         <>
             {/* starting search bar */}
@@ -58,7 +51,6 @@ export const RickAndMortyCharacterCard = () => {
             <div className="item-charactercard">
                 {characterList && characterList.length > 0 ? (
                     characterList.map((characters) => {
-                        console.log(characters, "soy characters");
                         return (
                             <div className="character-card-container" key={characters.id}>
                                 <CharacterCard

@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { EpisodeCard } from "../components/EpisodeCard";
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+
 
 export const RickAndMortyEpisodeCard = () => {
 
@@ -43,9 +45,21 @@ export const RickAndMortyEpisodeCard = () => {
                 }
             </div>
             <section className="button-section-episodePage">
-                <button disabled={offset === 1} onClick={prevPage}>prev</button>
+                <button
+                    className="pagination-button"
+                    disabled={offset === 1}
+                    onClick={prevPage}>
+                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
+                    prev
+                </button>
                 <p>{offset}</p>
-                <button disabled={offset === 3} onClick={nextPage}>next</button>
+                <button
+                    className="pagination-button"
+                    disabled={offset === 3}
+                    onClick={nextPage}>
+                    next
+                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+                </button>
             </section>
         </div>
     )

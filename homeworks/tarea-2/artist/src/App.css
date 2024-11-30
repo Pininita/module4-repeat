@@ -33,13 +33,13 @@ html, body {
   gap: 20px;
 }
 
-.home-links-card{
+.links{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.home-links-card img {
+.links img {
   min-height: 200px;
   min-width: 150px;
   max-height: 400px;
@@ -48,7 +48,7 @@ html, body {
   box-shadow: 2px 2px 5px 2px black;
 }
 
-.home-links-card button {
+.links button {
   background-color: #212121; 
   color: white; 
   border: none; 
@@ -59,11 +59,18 @@ html, body {
   transition: background-color 0.3s ease;
 }
 
-.home-links-card button:hover {
+.links button:hover {
   background-color: #333; 
 }
 
 /* end home page style */
+
+.nav-character{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
 
 .characterPic {
   width: 100%;
@@ -185,9 +192,23 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 /* episode page section */
+
+.body-episodes{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-episodes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
 
 .episodecard {
   border: 2px solid green;
